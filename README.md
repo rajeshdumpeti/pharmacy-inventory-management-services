@@ -1,5 +1,7 @@
 Pharmacy Inventory Management System
+
 Overview
+
 As the lead developer of this project, I've built a comprehensive Pharmacy Inventory Management System that enables centralized tracking of inventory across multiple pharmacy locations. This full-stack application features:
 
 React frontend with TypeScript for type safety
