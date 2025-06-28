@@ -1,0 +1,33 @@
+.env
+*.pyc
+__pycache__/
+.venv/
+venv/
+db.sqlite3
+vscode/
+
+# Ignore IDE and editor specific files
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+*.swp
+*.DS_Store
+# Ignore Python specific files
+*.py[cod]
+*.pyo
+*.pyd
+*.pyd
+*.pyo
+*.pdb
+*.egg-info/
+*.eggs/
+*.coverage
+.coverage.*
+*.cache
+*.tox/
+*.mypy_cache/
+*.pytest_cache/
+*.hypothesis/
+*.dist-info/
+*.egg
