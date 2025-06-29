@@ -23,6 +23,13 @@ class InventoryItem(Base):
     description = Column(String)
     quantity = Column(Integer)
     price = Column(Float)
+    batch_number = Column(String)      
+    expiry_date = Column(String)        
+    supplier = Column(String)          
+    category = Column(String)          
+    unit = Column(String)              
+    reorder_level = Column(Integer)  
+    location = Column(String)    
     last_updated = Column(String)  # Could be DateTime in production
     
     pharmacy = relationship("Pharmacy", back_populates="inventory")

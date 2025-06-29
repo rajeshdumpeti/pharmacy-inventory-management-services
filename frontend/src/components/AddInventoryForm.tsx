@@ -4,11 +4,13 @@ import { createInventoryItem } from '../services/api';
 interface AddInventoryFormProps {
   pharmacyId: number;
   onInventoryAdded: (item: any) => void;
+  pharmacyName: string;
 }
 
-const AddInventoryForm: React.FC<AddInventoryFormProps> = ({ 
-  pharmacyId, 
-  onInventoryAdded 
+const AddInventoryForm: React.FC<AddInventoryFormProps> = ({
+  pharmacyId,
+  onInventoryAdded,
+  pharmacyName,
 }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -37,45 +39,62 @@ const AddInventoryForm: React.FC<AddInventoryFormProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Add New Inventory Item</h3>
-      <div className="form-group">
-        <label>Name:</label>
-        <input
-          type="text"
-          value={formData.name}
-          onChange={(e) => setFormData({...formData, name: e.target.value})}
-          required
-        />
+    <form onSubmit={handleSubmit} className="mx-auto bg-white p-6 rounded shadow space-y-4">
+      <h3 className="text-xl font-semibold mb-2">
+        Add New Inventory Item for {pharmacyName} store
+      </h3>
+      {/* Name & Description side by side */}
+      <div className="flex flex-row gap-4">
+        <div className="flex-1 mb-2">
+          <label className="block mb-1 font-medium">Name:</label>
+          <input
+            type="text"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            required
+            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
+          />
+        </div>
+        <div className="flex-1 mb-2">
+          <label className="block mb-1 font-medium">Description:</label>
+          <input
+            type="text"
+            value={formData.description}
+            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
+          />
+        </div>
       </div>
-      <div className="form-group">
-        <label>Description:</label>
-        <input
-          type="text"
-          value={formData.description}
-          onChange={(e) => setFormData({...formData, description: e.target.value})}
-        />
+      {/* Quantity & Price side by side */}
+      <div className="flex flex-row gap-4">
+        <div className="flex-1 mb-2">
+          <label className="block mb-1 font-medium">Quantity:</label>
+          <input
+            type="number"
+            value={formData.quantity}
+            onChange={(e) => setFormData({ ...formData, quantity: parseInt(e.target.value, 10) })}
+            required
+            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
+          />
+        </div>
+        <div className="flex-1 mb-2">
+          <label className="block mb-1 font-medium">Price:</label>
+          <input
+            type="number"
+            step="0.01"
+            value={formData.price}
+            onChange={(e) => setFormData({ ...formData, price: parseFloat(e.target.value) })}
+            required
+            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
+          />
+        </div>
       </div>
-      <div className="form-group">
-        <label>Quantity:</label>
-        <input
-          type="number"
-          value={formData.quantity}
-          onChange={(e) => setFormData({...formData, quantity: parseInt(e.target.value) || 0})}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label>Price:</label>
-        <input
-          type="number"
-          step="0.01"
-          value={formData.price}
-          onChange={(e) => setFormData({...formData, price: parseFloat(e.target.value) || 0})}
-          required
-        />
-      </div>
-      <button type="submit">Add Item</button>
+      <button
+        type="submit"
+        className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
+      >
+        Add Item
+      </button>
     </form>
   );
 };

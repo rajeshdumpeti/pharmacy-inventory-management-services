@@ -23,3 +23,8 @@ export interface InventorySummary {
   total_quantity: number;
   total_value: number;
 }
+
+export interface MonthlySummary {
+  month: string;
+  total_value: number;
+}
