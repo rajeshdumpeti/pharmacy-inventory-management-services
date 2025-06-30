@@ -21,7 +21,7 @@ const InventoryList: React.FC<InventoryListProps> = ({ inventory, onEditSubmit }
               <th>Quantity</th>
               <th>Price</th>
               <th>Total Value</th>
-              {onEditSubmit && <th>Edit</th>}
+              {/* {onEditSubmit && <th>Edit</th>} */}
             </tr>
           </thead>
           <tbody>
@@ -32,7 +32,7 @@ const InventoryList: React.FC<InventoryListProps> = ({ inventory, onEditSubmit }
                 <td>{item.quantity}</td>
                 <td>${item.price.toFixed(2)}</td>
                 <td>${(item.quantity * item.price).toFixed(2)}</td>
-                {onEditSubmit && (
+                {/* {onEditSubmit && (
                   <td>
                     <button
                       className="bg-yellow-500 text-white px-3 py-1 rounded"
@@ -46,7 +46,7 @@ const InventoryList: React.FC<InventoryListProps> = ({ inventory, onEditSubmit }
                       Edit
                     </button>
                   </td>
-                )}
+                )} */}
               </tr>
             ))}
           </tbody>

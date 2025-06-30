@@ -17,7 +17,7 @@ const AddInventoryPage: React.FC<{
   };
 
   return (
-    <div className="sticky top-24 bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+    <div className="sticky top-24 bg-white rounded-2xl shadow-xl p-8 mb-4 max-w-4xl mx-auto">
       <h2 className="text-3xl font-extrabold text-center mb-8 text-green-700">
         Add New Inventory Item
       </h2>
