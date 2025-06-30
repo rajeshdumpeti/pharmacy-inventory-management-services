@@ -1,7 +1,11 @@
-# docker-compose.yml
-
-version: "3.9"
 services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
   backend:
     build: ./backend
     ports:
@@ -11,6 +15,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
+
   db:
     image: postgres:14
     restart: always
@@ -23,9 +28,10 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 5s
       timeout: 5s
       retries: 5
+
 volumes:
   pgdata:
