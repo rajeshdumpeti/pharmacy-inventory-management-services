@@ -1,22 +1,22 @@
-# frontend/Dockerfile
-
-# Build stage
-FROM node:18-alpine AS builder
+# Step 1: Use Node to build the frontend
+FROM node:18 AS builder
 
 WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build
 
-# Production stage
+# Step 2: Serve the build with Nginx
 FROM nginx:alpine
 
-# Copy build files
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Clean default nginx static files
+RUN rm -rf /usr/share/nginx/html/*
 
-# Optional: Remove default config and use your own
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy built files from builder
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Optional: Copy custom nginx config if you have one
+# COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
-
 CMD ["nginx", "-g", "daemon off;"]
