@@ -1,6 +1,6 @@
 import { Pharmacy, InventoryItem, InventorySummary, MonthlySummary } from '../types/types';
 
-const API_BASE_URL = process.env.DEV_REACT_APP_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 const handleResponse = async (response: Response) => {
   if (!response.ok) {
