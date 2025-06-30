@@ -46,7 +46,7 @@ const MonthlyReportChart: React.FC<MonthlyPieChartProps> = ({ monthlySummary }) 
   };
 
   return (
-    <div className="sticky top-24 bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto flex flex-col items-center">
+    <div className="sticky top-24 bg-white rounded-2xl shadow-xl p-8 mb-4 max-w-4xl mx-auto flex flex-col items-center">
       <Pie data={data} options={options} />
     </div>
   );

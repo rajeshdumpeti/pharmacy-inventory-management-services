@@ -36,7 +36,7 @@ const InventoryPage: React.FC<InventoryPageProps> = ({
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+    <div className="bg-white rounded-2xl shadow-xl p-8 mb-4 max-w-4xl mx-auto">
       <h2 className="text-2xl font-bold mb-6 text-green-700">Inventory for {pharmacy.name}</h2>
       <InventoryList
         inventory={inventory}

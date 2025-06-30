@@ -37,7 +37,7 @@ const AddPharmacyForm: React.FC<AddPharmacyFormProps> = ({ onPharmacyAdded }) =>
       setSuccess('Pharmacy added successfully!');
       setTimeout(() => {
         setSuccess(null);
-        navigate('/add-pharmacy');
+        navigate('/pharmacies'); // Redirect to the pharmacies list
       }, 1500);
     } catch (error) {
       console.error('Error adding pharmacy:', error);

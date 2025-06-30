@@ -8,11 +8,13 @@ from pydantic import BaseModel
 from typing import List, Optional
 from .schemas import InventoryUpdate
 from datetime import datetime
+from app.models import Base
+from app.database import engine
 
 
 app = FastAPI()
 # Database setup
-models.Base.metadata.create_all(bind=database.engine)
+Base.metadata.create_all(bind=engine)
 
 # Middleware for CORS
 app.add_middleware(
