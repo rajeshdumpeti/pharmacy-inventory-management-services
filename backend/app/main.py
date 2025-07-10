@@ -19,7 +19,10 @@ Base.metadata.create_all(bind=engine)
 # Middleware for CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://pharmacy-frontend-sanj.onrender.com"],  # or ["*"] during testing
+    allow_origins=[
+        "http://localhost:3000",  # Local React dev server
+        "https://pharmacy-frontend-sanj.onrender.com"  # Deployed frontend
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
